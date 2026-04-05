@@ -1,498 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Michael Aguirre | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-bar">
+            <div class="logo">jm<span>.dev</span></div>
+            <div class="status-tag"><span class="dot"></span> Available for Projects</div>
+        </nav>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap');
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  .port {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--color-text-primary);
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 1.5rem 4rem;
-  }
-
-  .serif { font-family: 'Playfair Display', serif; }
-
-  .divider {
-    border: none;
-    border-top: 0.5px solid var(--color-border-tertiary);
-    margin: 3rem 0;
-  }
-
-  .section-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-text-tertiary);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-  }
-
-  /* HERO */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: end;
-    padding: 3.5rem 0 0;
-  }
-
-  .hero-eyebrow {
-    font-size: 13px;
-    color: var(--color-text-secondary);
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.02em;
-  }
-
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-  }
-
-  .hero-name em {
-    font-style: italic;
-    color: var(--color-text-secondary);
-  }
-
-  .hero-desc {
-    font-size: 15px;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    max-width: 420px;
-    font-weight: 300;
-  }
-
-  .photo-frame {
-    width: 130px;
-    height: 160px;
-    border-radius: 80px 80px 8px 8px;
-    border: 0.5px solid var(--color-border-secondary);
-    background: var(--color-background-secondary);
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .photo-placeholder-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--color-border-secondary);
-  }
-
-  .photo-placeholder-text {
-    font-size: 11px;
-    color: var(--color-text-tertiary);
-    text-align: center;
-    line-height: 1.4;
-    padding: 0 8px;
-  }
-
-  .hero-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-  }
-
-  .tag {
-    font-size: 12px;
-    padding: 5px 12px;
-    border-radius: 100px;
-    border: 0.5px solid var(--color-border-secondary);
-    color: var(--color-text-secondary);
-    font-weight: 400;
-  }
-
-  /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .about-text {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--color-text-secondary);
-    font-weight: 300;
-  }
-
-  .about-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-
-  .meta-label {
-    font-size: 11px;
-    color: var(--color-text-tertiary);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .meta-value {
-    font-size: 14px;
-    color: var(--color-text-primary);
-    font-weight: 400;
-  }
-
-  /* SKILLS */
-  .skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .skill-row {
-    display: grid;
-    grid-template-columns: 90px 1fr auto;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .skill-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-text-primary);
-  }
-
-  .skill-bar-track {
-    height: 3px;
-    background: var(--color-border-tertiary);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .skill-bar-fill {
-    height: 100%;
-    border-radius: 2px;
-    background: var(--color-text-primary);
-    transition: width 1s cubic-bezier(0.4,0,0.2,1);
-  }
-
-  .skill-pct {
-    font-size: 12px;
-    color: var(--color-text-tertiary);
-    font-variant-numeric: tabular-nums;
-    min-width: 32px;
-    text-align: right;
-  }
-
-  /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .project-card {
-    background: var(--color-background-primary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
-    padding: 1.25rem;
-    transition: border-color 0.2s;
-    cursor: default;
-  }
-
-  .project-card:hover {
-    border-color: var(--color-border-primary);
-  }
-
-  .project-number {
-    font-size: 11px;
-    color: var(--color-text-tertiary);
-    margin-bottom: 10px;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .project-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-
-  .project-desc {
-    font-size: 13px;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  .project-stack {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 14px;
-  }
-
-  .stack-tag {
-    font-size: 11px;
-    padding: 3px 9px;
-    border-radius: 4px;
-    background: var(--color-background-secondary);
-    color: var(--color-text-secondary);
-    border: 0.5px solid var(--color-border-tertiary);
-  }
-
-  /* CONTACT */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 1rem 1.25rem;
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
-    background: var(--color-background-primary);
-    transition: border-color 0.2s;
-  }
-
-  .contact-item:hover { border-color: var(--color-border-primary); }
-
-  .contact-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: var(--color-background-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .contact-icon svg { width: 16px; height: 16px; }
-
-  .contact-label {
-    font-size: 11px;
-    color: var(--color-text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 2px;
-  }
-
-  .contact-value {
-    font-size: 13px;
-    color: var(--color-text-primary);
-    font-weight: 400;
-  }
-
-  .footer {
-    margin-top: 4rem;
-    text-align: center;
-    font-size: 12px;
-    color: var(--color-text-tertiary);
-    font-style: italic;
-    font-family: 'Playfair Display', serif;
-  }
-
-  @media (max-width: 560px) {
-    .hero { grid-template-columns: 1fr; }
-    .photo-frame { display: none; }
-    .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; }
-    .skill-row { grid-template-columns: 80px 1fr auto; }
-  }
-</style>
-
-<div class="port">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <p class="hero-eyebrow">Portfolio — 2025</p>
-      <h1 class="hero-name">John Michael<br><em>Aguirre</em></h1>
-      <p class="hero-desc">A second-year IT student with a passion for building clean, functional experiences on the web.</p>
-      <div class="hero-tags">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">BSIT · 2nd Year</span>
-      </div>
+<header class="hero">
+    <div class="hero-layout">
+        <div class="photo-wrapper">
+            <div class="photo-circle">
+                <img src="aefbf37f-2e32-4b84-9580-5a0bb61d46d6.jpg" alt="John Michael Aguirre" class="profile-img">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="status-indicator"></div>
+        </div>
+        
+        <div class="hero-content">
+            <p class="eyebrow">2nd Year BSIT Student</p>
+            <h1>John Michael <span>Aguirre</span></h1>
+            <p class="description">
+                Building functional web experiences with a focus on clean code and intuitive design at <strong>Western Institute of Technology</strong>.
+            </p>
+            <div class="badge-group">
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">UI/UX</span>
+            </div>
+        </div>
     </div>
-    <div class="photo-frame">
-      <div class="photo-placeholder-icon"></div>
-      <p class="photo-placeholder-text">Your photo here</p>
+</header>
+
+        <main>
+            <section id="about">
+                <h2 class="section-title"> About Me</h2>
+                <div class="about-flex">
+                    <div class="text-block">
+                        <p>Hi! I'm John Michael. I enjoy crafting interfaces that are both beautiful and intuitive. Based in Iloilo City, I'm currently exploring the intersection of design and front-end engineering.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="label">Location</span>
+                            <span class="value">Iloilo City, PH</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Specialization</span>
+                            <span class="value">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2 class="section-title"> Technical Stack</h2>
+                <div class="skills-container" id="skills-list">
+                    </div>
+            </section>
+
+         <section id="projects">
+    <h2 class="section-title"> 03. Selected Work</h2>
+    <div class="project-grid">
+        <article class="project-card">
+            <div class="project-image-container">
+                <img src="pixelites.png" alt="Pixelites Interface" class="project-img">
+                <div class="image-overlay">
+                    <span class="view-tag">View Prototype</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-header">
+                    <span class="code-icon">&lt;/&gt;</span>
+                    <span class="project-year">2025</span>
+                </div>
+                <h3>Pixelites</h3>
+                <p>A pixel-art gamified study tool. Upload your PDFs or notes and turn them into interactive RPG-style quizzes to level up your learning.</p>
+                <div class="card-footer">HTML • CSS • JS • Game Engine</div>
+            </div>
+        </article>
+
+        <article class="project-card highlight">
+            <div class="project-image-container">
+                <img src="trashtalk.png" alt="Trashtalk Dashboard" class="project-img">
+                <div class="image-overlay">
+                    <span class="view-tag">Live System</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-header">
+                    <span class="code-icon">&lt;/&gt;</span>
+                    <span class="project-year">2025</span>
+                </div>
+                <h3>Trashtalk</h3>
+                <p>Smart waste management system for schools. A one-tap request system that alerts janitorial staff when bins are full or rooms need cleaning.</p>
+                <div class="card-footer">IoT • Mobile App • Real-time API</div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-image-container">
+                <img src="todo.png" alt="To-Do App" class="project-img">
+                <div class="image-overlay">
+                    <span class="view-tag">Open Source</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-header">
+                    <span class="code-icon">&lt;/&gt;</span>
+                    <span class="project-year">2024</span>
+                </div>
+                <h3>To-Do List App</h3>
+                <p>A high-performance task management app featuring local storage persistence and dynamic priority filtering.</p>
+                <div class="card-footer">JavaScript • LocalStorage • CSS3</div>
+            </div>
+        </article>
     </div>
-  </section>
+</section>
+        </main>
 
-  <hr class="divider">
-
-  <!-- ABOUT -->
-  <section>
-    <p class="section-label">About me</p>
-    <div class="about-grid">
-      <p class="about-text">
-        Hi! I'm John Michael, a BS Information Technology student at Western Institute of Technology. I enjoy crafting interfaces that are both beautiful and intuitive, and I'm always exploring new ways to bring ideas to life through code. When I'm not studying, you'll find me tinkering with side projects or learning something new in web development.
-      </p>
-      <div class="about-meta">
-        <div class="meta-item">
-          <span class="meta-label">Program</span>
-          <span class="meta-value">BS Information Technology</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">School</span>
-          <span class="meta-value">Western Institute of Technology</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Year level</span>
-          <span class="meta-value">2nd Year</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Focus</span>
-          <span class="meta-value">Web Development</span>
-        </div>
-      </div>
+        <footer>
+            <p>// Designed & Built by John Michael Aguirre</p>
+        </footer>
     </div>
-  </section>
 
-  <hr class="divider">
+    <script>
+        const skills = [
+            { name: "HTML", pct: 85 },
+            { name: "CSS", pct: 80 },
+            { name: "JavaScript", pct: 70 },
+            { name: "Figma", pct: 45 }
+        ];
 
-  <!-- SKILLS -->
-  <section>
-    <p class="section-label">Skills & Languages</p>
-    <div class="skills-list" id="skills-list"></div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- PROJECTS -->
-  <section>
-    <p class="section-label">Projects</p>
-    <div class="projects-grid">
-      <div class="project-card">
-        <p class="project-number">01</p>
-        <h3 class="project-title">Personal Blog Website</h3>
-        <p class="project-desc">A responsive personal blog built from scratch, featuring article listings, a clean reading layout, and a contact form.</p>
-        <div class="project-stack">
-          <span class="stack-tag">HTML</span>
-          <span class="stack-tag">CSS</span>
-          <span class="stack-tag">JS</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <p class="project-number">02</p>
-        <h3 class="project-title">To-Do List App</h3>
-        <p class="project-desc">A dynamic task management app with local storage persistence, priority tagging, and smooth UI transitions.</p>
-        <div class="project-stack">
-          <span class="stack-tag">JavaScript</span>
-          <span class="stack-tag">CSS</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <p class="project-number">03</p>
-        <h3 class="project-title">Student Grade Calculator</h3>
-        <p class="project-desc">A utility web app for computing final grades based on weighted components — built for fellow students.</p>
-        <div class="project-stack">
-          <span class="stack-tag">HTML</span>
-          <span class="stack-tag">JavaScript</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <p class="project-number">04</p>
-        <h3 class="project-title serif" style="font-style:italic; color: var(--color-text-tertiary); font-size:15px; padding-top: 24px;">Your next project here</h3>
-        <p class="project-desc" style="margin-top: 6px;">Add your upcoming or current project to showcase your growing work.</p>
-        <div class="project-stack">
-          <span class="stack-tag">Coming soon</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- CONTACT -->
-  <section>
-    <p class="section-label">Get in touch</p>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-        </div>
-        <div>
-          <p class="contact-label">Email</p>
-          <p class="contact-value">jmaguirre@email.com</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </div>
-        <div>
-          <p class="contact-label">GitHub</p>
-          <p class="contact-value">github.com/jmaguirre</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </div>
-        <div>
-          <p class="contact-label">LinkedIn</p>
-          <p class="contact-value">linkedin.com/in/jmaguirre</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <p class="contact-label">Location</p>
-          <p class="contact-value">Iloilo City, Philippines</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <p class="footer">Designed & built by John Michael Aguirre · BSIT · WIT</p>
-</div>
-
-<script>
-const skills = [
-  { name: "HTML", pct: 85 },
-  { name: "CSS", pct: 80 },
-  { name: "JavaScript", pct: 70 },
-  { name: "Git & CLI", pct: 55 },
-  { name: "Figma", pct: 45 },
-];
-
-const list = document.getElementById('skills-list');
-skills.forEach(s => {
-  const row = document.createElement('div');
-  row.className = 'skill-row';
-  row.innerHTML = `
-    <span class="skill-name">${s.name}</span>
-    <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-pct="${s.pct}"></div></div>
-    <span class="skill-pct">${s.pct}%</span>
-  `;
-  list.appendChild(row);
-});
-
-setTimeout(() => {
-  document.querySelectorAll('.skill-bar-fill').forEach(el => {
-    el.style.width = el.dataset.pct + '%';
-  });
-}, 200);
-</script>
+        const list = document.getElementById('skills-list');
+        skills.forEach(s => {
+            list.innerHTML += `
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>${s.name}</span>
+                        <span>${s.pct}%</span>
+                    </div>
+                    <div class="progress-bg">
+                        <div class="progress-fill" style="width: ${s.pct}%"></div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
